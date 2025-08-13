@@ -1,0 +1,39 @@
+
+version: '3.8'
+
+services:
+  # Servicio para tu aplicación FastAPI
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    # env_file: # <-- ¡Comenta o elimina esta línea!
+    #   - .env # <-- ¡Comenta o elimina esta línea!
+    environment: # <-- ¡Añade este bloque!
+      OPENAI_API_KEY: your_openai_api_key_here
+      TOP_K: 3
+      VECTOR_STORE_PATH: ./faiss_index
+      LOCAL_LLM_URL: http://ollama:11434/v1
+      LOCAL_LLM_MODEL: llama3
+    depends_on:
+      - ollama
+    networks:
+      - product_bot_network
+
+  # Servicio para Ollama (el servidor LLM local)
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - product_bot_network
+
+networks:
+  product_bot_network:
+
+volumes:
+  ollama_data:

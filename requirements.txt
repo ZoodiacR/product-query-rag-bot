@@ -1,0 +1,14 @@
+﻿fastapi
+uvicorn
+pydantic
+langchain
+langchain-community
+langchain-openai
+langgraph
+faiss-cpu
+python-dotenv
+pytest
+httpx
+sentence-transformers
+langchain-ollama
+langchain-huggingface

@@ -1,0 +1,3 @@
+﻿Product Name: Smart Coffee Maker
+SKU: CM-2023
+Description: The Smart Coffee Maker is a state-of-the-art appliance that allows you to brew your favorite coffee from anywhere using a mobile app. It features a programmable timer, a built-in grinder for fresh beans, and a self-cleaning function. The 12-cup carafe is made of insulated glass to keep coffee hot for hours. It also supports voice commands via Amazon Alexa and Google Assistant.
