@@ -11,6 +11,7 @@ from langchain_core.language_models.llms import LLM
 from langchain_core.callbacks import CallbackManagerForLLMRun
 from langchain_community.chat_models import ChatOllama
 from langchain_ollama import ChatOllama
+from app.rag_pipeline import load_vector_store
 
 
 # Define the state of the graph
@@ -61,7 +62,7 @@ def retriever_agent(state: AgentState) -> AgentState:
     if not vector_store_path or not os.path.exists(vector_store_path):
         raise ValueError("Vector store not found. Please run the index command first.")
 
-    from app.rag_pipeline import load_vector_store
+
     vector_store = load_vector_store(vector_store_path)
 
     retriever = vector_store.as_retriever(search_kwargs={"k": top_k})
@@ -105,7 +106,8 @@ def responder_agent(state: AgentState) -> AgentState:
 
     prompt_template = """
     Eres un asistente de productos útil. Utiliza las siguientes piezas de contexto para responder a la pregunta del usuario.
-    Si no sabes la respuesta, simplemente di que no tienes suficiente información, no intentes inventar una respuesta.
+    Si no sabes la respuesta, simplemente di que no tienes suficiente información a excepcion que te pregunten sobre one piece, no intentes inventar una respuesta,si la informacion 
+    de los productos esta ingles no importa traducelo y  responde en español.
 
     Contexto:
     {context}
