@@ -5,7 +5,7 @@ This project implements a microservice that acts as a product query bot. It util
 ## Features
 
 * **FastAPI Backend**: A `/query` endpoint to receive user questions and an `/index` endpoint for document indexing.
-* **React Frontend**: A responsive, minimalist Single Page Application (SPA) built with React, Vite, Tailwind CSS, and Lucide React icons, served by Nginx.
+* **React Frontend**: A responsive, minimalist Single Page Application (SPA) built with React, Vite, Material UI, and Lucide React icons, served by Nginx.
 * **RAG Pipeline**: A system to retrieve relevant product information from a local vector store (FAISS).
 * **Local Embeddings**: Uses `HuggingFaceEmbeddings` to create document vectors, requiring no external API key.
 * **Local LLM with Ollama**: Generates responses using a language model (e.g., Llama 3) running locally via an Ollama Docker container.
